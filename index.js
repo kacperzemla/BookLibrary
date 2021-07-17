@@ -11,8 +11,6 @@ if(booksFromLocalStorage){
   myLibrary = booksFromLocalStorage
 }
 
-
-
 addButton.addEventListener("click", function(){
     newBookForm.style.display = "flex"
 })
@@ -49,44 +47,43 @@ function render(){
     const books = document.querySelectorAll(".book")
     books.forEach( book => tbody.removeChild(book))
 
-
-}
-
-function render(){
-
-    myLibrary.forEach( function(book){
-        let tRow = document.createElement('tr')
-        tRow.classList.add("book")
-        for(key in book){
-            let td = document.createElement('td')
-            td.innerText = book[key]
-            tRow.appendChild(td)
-        }
-        let tdDelete = document.createElement('td')
-        let buttonDelete = document.createElement('button')
-        buttonDelete.innerText = "Delete"
-        buttonDelete.classList.add("delete")
-        buttonDelete.setAttribute('data-id', myLibrary.indexOf(book))
-
-        buttonDelete.addEventListener("click", function(){
-            myLibrary.splice(myLibrary.indexOf(book),1)
-            tbody.remove(buttonDelete.closest("tr"))
-            console.log(myLibrary)
-            localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
-        })
-
-        tdDelete.appendChild(buttonDelete)
-        tRow.appendChild(tdDelete)
-
-        tbody.appendChild(tRow)
-        console.log(tbody)
+    myLibrary.forEach(function(book){
+        CreateBook(book)
     })
+
+}
+
+render();
+
+function CreateBook(book){
+    let tRow = document.createElement('tr')
+    tRow.classList.add("book")
+
+    for(key in book){
+        let td = document.createElement('td')
+        td.innerText = book[key]
+        tRow.appendChild(td)
+    }
+    let tdDelete = document.createElement('td')
+    let buttonDelete = document.createElement('button')
+    buttonDelete.innerText = "Delete"
+
+    buttonDelete.classList.add("delete")
+    buttonDelete.setAttribute('data-id', myLibrary.indexOf(book))
+
+    buttonDelete.addEventListener("click", function(){
+        myLibrary.splice(myLibrary.indexOf(book),1)
+        console.log(myLibrary)
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
+        render();
+    })
+
+    tdDelete.appendChild(buttonDelete)
+    tRow.appendChild(tdDelete)
+
+    tbody.appendChild(tRow)
+    console.log(tbody)
 }
 
 
 
-    
-
-// console.log(bookOne)
- 
-// console.log(myLibrary)
