@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <title>MyLibrary</title>
 </head>
 
 <body>
+    <div class="container">
+        <div class="library" >
+            <h1>My Library</h1>
+            <table class="library__table" >
+                <thead>
+                    <td>Title</td>
+                    <td>Author</td>
+                    <td>Pages</td>
+                    <td>Read</td>
+                </thead>
+                <tbody >
 
+                </tbody>
+            </table>
+            <button id="addNew">+</button>
+        </div>
+        <div class="bg-modal">
+            <div class="modal-content">
+                <h1>Add a book to ur library</h1>
+                <button class="cancel" id="cancel-btn">X</button>
+                <form>
+                    <input placeholder="Title" id="title">
+                    <input placeholder="Author" id="author">
+                    <input placeholder="Pages" type="number" id="pages">
+                    <p>Have you read it?</p>
+                    <div class="checkbox">
+                        <input type="radio" name="read" id="Yes" value="Yes">
+                        <label for="Yes">Yes</label>
+                        <input type="radio" name="read" id='No' value="No">
+                        <label for="No">No</label>
+                    </div>
+                    <button id="newbook-btn">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
