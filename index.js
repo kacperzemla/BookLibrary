@@ -83,10 +83,42 @@ function CreateBook(book){
         render();
     })
 
+    const label = document.createElement('label')
+    label.classList.add('switch')
+    const toggleSwitch = ` 
+    <span class="toggle-thumb">
+
+         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill:#4ADE80;transform:;-ms-filter:"><path d="M10 15.586L6.707 12.293 5.293 13.707 10 18.414 19.707 8.707 18.293 7.293z"></path></svg>
+
+         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill:#F87171;transform:;-ms-filter:"><path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"></path></svg>
+
+    </span>`
+    const input = document.createElement('input')
+    input.type = "checkbox"
+    input.classList.add("checkbox")
+    label.appendChild(input)
+    label.innerHTML += toggleSwitch
+    document.addEventListener('DOMContentLoaded', function () {
+        let checkbox = document.querySelector('.checkbox')
+        console.log(checkbox)
+        checkbox.addEventListener('change', function(){
+            if(checkbox.checked){
+                book.read = true;
+            } else {
+                book.read = false;
+            }
+            console.log(book + '   ' + book.read)
+        })
+    
+    })
+
+   
+
     div.appendChild(h1)
     div.appendChild(pAuthor)
     div.appendChild(pNumberOfPages)
     div.appendChild(buttonDelete)
+    div.appendChild(label)
     divLibrary.appendChild(div)
 }
 
