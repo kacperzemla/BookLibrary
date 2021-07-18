@@ -39,10 +39,14 @@
                     <input placeholder="Pages" type="number" id="pages">
                     <p>Have you read it?</p>
                     <div class="checkbox__div">
-                        <input type="radio" name="read" id="Yes" value="Yes">
-                        <label for="Yes">Yes</label>
-                        <input type="radio" name="read" id='No' value="No">
-                        <label for="No">No</label>
+                        <label class="checkbox__label">Yes
+                            <input type="radio" checked="checked" name="read" id="Yes" value="Yes">
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="checkbox__label">No
+                            <input type="radio" name="read" id="No" value="No">
+                            <span class="checkmark"></span>
+                          </label>
                     </div>
                     <button id="newbook-btn" class="newbook-btn">Add</button>
                 </form>
