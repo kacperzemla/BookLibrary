@@ -9,17 +9,18 @@
 body{
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     font-family: 'Ubuntu', sans-serif;
     background: linear-gradient(180deg, #FFFFFF 0%, #F0E6FE 42.71%, rgba(164, 92, 255, 0.99) 100%);
     background-repeat: no-repeat;
     background-size: contain;
+    padding-bottom: 5rem;
 }
 
 .container{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
 }
 
 .library__header{
@@ -275,6 +276,10 @@ body{
 }
 
 @media (max-width: 600px){
+    body{
+        height: 100%;
+    }
+
     .library__header{
         text-align: center;
         justify-content: center;
