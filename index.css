@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+html,body {
+    min-height: 100%;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F0E6FE 42.71%, rgba(164, 92, 255, 0.99) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 5rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.library__header{
+    display: flex;
+    text-align: left;
+    margin: 1rem 2rem 1rem 2rem;
+    align-items: center;
+}
+
+.library__header h1{
+    font-size: 2.5rem;
+}
+
+.my{
+    color: #6800ED;
+}
+
+.addNew{
+    border-radius: 50%;
+    border: 2px solid #6800ED;
+    color: #6800ED;
+    background: #fff;
+    margin-left: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.library{
+    margin: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 250px));
+    grid-gap: 2rem;
+    justify-content: center;
+    height: 100%;
+}
+
+.book{
+    padding: 1rem 2rem;
+    width: 250px;
+    height: 220px;
+    border-radius: 29px;
+    box-shadow: 0 3px 10px 1px rgba(0,0,0,0.25);
+    background: #fff;
+}
+
+.book p{
+    text-align: left;
+    font-weight: bold;
+    color: #848484;
+}
+
+.delete{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 2px solid #6800ED;
+    border-radius: 20px;
+    background: white;
+    color: #6800ED;
+    width: 4.5rem;
+    padding: 2px 5px;
+    margin-top: 1rem;
+}
+
+
+.bg-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    display: none;
+}
+
+
+
+.modal-content{
+    width: 550px;
+    height: 360px;
+    background: #fff;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content p{
+    font-weight: bold;
+}
+
+.modal-content form input{
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 2px solid #848484;
+    padding: 3px;
+    padding-left: 10px;
+    font-weight: bold;
+    outline: none;
+    box-shadow: 0 3px 10px 1px rgba(146, 146, 146, 0.575);
+}
+
+.modal-content form input:focus{
+    border: 2px solid #6800ED;
+}
+
+.cancel{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid #6800ED;
+    border-radius: 20px;
+    color: #6800ED;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: #fff;
+}
+
+.checkbox__div{
+    margin-bottom: 1rem;
+}
+
+.checkbox__label {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .checkbox__label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .checkbox__label:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .checkbox__label input:checked ~ .checkmark {
+    background-color: #6800ED;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .checkbox__label input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .checkbox__label .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+.newbook-btn{
+    border: 2px solid #6800ED;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    color: #6800ED;
+    background: #fff;
+    padding: 5px 2rem;
+}
+
+.newbook-btn:hover, .cancel:hover, .delete:hover, .addNew:hover{
+    background: #6800ED;
+    color: #fff;
+}
+
+.switch {
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    position: relative;
+}
+
+.toggle-thumb {
+    position: absolute;
+    display: flex;
+    right: -65px;
+    bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6800ED;
+    border-radius: 40px;
+    height: 26px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.toggle-thumb:before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 4px;
+    bottom: 3px;
+    border-radius: 50%;
+    background-color: #E2E8F0;
+    transition: .4s all ease;
+}
+
+.checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox:checked + .toggle-thumb:before {
+    transform: translateX(22px);
+}
+
+@media (max-width: 600px){
+
+    .library__header{
+        text-align: center;
+        justify-content: center;
+    }
+
+    .modal-content{
+        width: 80%;
+        height: auto;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+
+    .modal-content h1{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+}
