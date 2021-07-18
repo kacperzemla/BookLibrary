@@ -11,9 +11,9 @@
 
 <body>
     <div class="container">
-        <div class="library" >
-            <h1>My Library</h1>
-            <table class="library__table" >
+        <div class="library__header" >
+            <h1><span class="my">My</span> Library</h1>
+            <!-- <table class="library__table" >
                 <thead>
                     <td>Title</td>
                     <td>Author</td>
@@ -23,12 +23,15 @@
                 <tbody >
 
                 </tbody>
-            </table>
-            <button id="addNew">+</button>
+            </table> -->
+            <button id="addNew" class="addNew">+</button>
+        </div>
+        <div class="library">
+
         </div>
         <div class="bg-modal">
             <div class="modal-content">
-                <h1>Add a book to ur library</h1>
+                <h1>Add a book to your library</h1>
                 <button class="cancel" id="cancel-btn">X</button>
                 <form>
                     <input placeholder="Title" id="title">
@@ -41,7 +44,7 @@
                         <input type="radio" name="read" id='No' value="No">
                         <label for="No">No</label>
                     </div>
-                    <button id="newbook-btn">Add</button>
+                    <button id="newbook-btn" class="newbook-btn">Add</button>
                 </form>
             </div>
         </div>

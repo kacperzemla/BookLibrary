@@ -1,5 +1,5 @@
 let myLibrary = []
-const tbody = document.querySelector("tbody")
+const divLibrary = document.querySelector(".library")
 const addButton = document.querySelector("#addNew")
 const newBookForm = document.querySelector(".bg-modal")
 const cancelBtn = document.getElementById("cancel-btn")
@@ -35,7 +35,7 @@ newBookBtn.addEventListener("click", function(){
 function Book(title, author, pages, read){
     this.title = title
     this.author = author
-    this.pages = pages
+    this.pages = pages + ' pages'
     this.read = read
 }
 
@@ -45,7 +45,7 @@ function addBookToLibrary(book){
 
 function render(){
     const books = document.querySelectorAll(".book")
-    books.forEach( book => tbody.removeChild(book))
+    books.forEach( book => divLibrary.removeChild(book))
 
     myLibrary.forEach(function(book){
         CreateBook(book)
@@ -56,16 +56,21 @@ function render(){
 render();
 
 function CreateBook(book){
-    let tRow = document.createElement('tr')
-    tRow.classList.add("book")
+    const div = document.createElement('div')
+    const h1 = document.createElement('h1')
+    const pAuthor = document.createElement('p')
+    const pNumberOfPages = document.createElement('p')
+    div.classList.add("book")
+    h1.innerText = book.title
+    pAuthor.innerText = book.author
+    pNumberOfPages.innerText = book.pages
 
-    for(key in book){
-        let td = document.createElement('td')
-        td.innerText = book[key]
-        tRow.appendChild(td)
-    }
-    let tdDelete = document.createElement('td')
-    let buttonDelete = document.createElement('button')
+    // for(key in book){
+    //     let td = document.createElement('td')
+    //     td.innerText = book[key]
+    //     tRow.appendChild(td)
+    // }
+    const buttonDelete = document.createElement('button')
     buttonDelete.innerText = "Delete"
 
     buttonDelete.classList.add("delete")
@@ -78,11 +83,11 @@ function CreateBook(book){
         render();
     })
 
-    tdDelete.appendChild(buttonDelete)
-    tRow.appendChild(tdDelete)
-
-    tbody.appendChild(tRow)
-    console.log(tbody)
+    div.appendChild(h1)
+    div.appendChild(pAuthor)
+    div.appendChild(pNumberOfPages)
+    div.appendChild(buttonDelete)
+    divLibrary.appendChild(div)
 }
 
 
