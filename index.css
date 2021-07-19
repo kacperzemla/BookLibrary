@@ -67,7 +67,7 @@ body{
 .book{
     padding: 1rem 2rem;
     width: 250px;
-    height: 220px;
+    height: 260px;
     border-radius: 29px;
     box-shadow: 0 3px 10px 1px rgba(0,0,0,0.25);
     background: #fff;
@@ -78,6 +78,7 @@ body{
     font-weight: bold;
     color: #848484;
 }
+
 
 .delete{
     text-align: center;
@@ -108,7 +109,7 @@ body{
 
 .modal-content{
     width: 550px;
-    height: 360px;
+    height: 410px;
     background: #fff;
     border-radius: 20px;
     text-align: center;
@@ -125,7 +126,8 @@ body{
     font-weight: bold;
 }
 
-.modal-content form input{
+.modal-content form input, select{
+    width: 40%;
     margin-bottom: 1rem;
     border-radius: 5px;
     border: 2px solid #848484;
@@ -294,5 +296,9 @@ body{
         width: 60%;
         margin: auto;
         margin-bottom: 2rem;
+    }
+
+    .modal-content form input, select{
+        width: 60%;
     }
 }

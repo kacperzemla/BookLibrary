@@ -24,19 +24,20 @@ newBookBtn.addEventListener("click", function(){
     let author = document.getElementById('author').value
     let pages = document.getElementById('pages').value
     let read = document.querySelector('input[name="read"]:checked').value
-
-    if(title != "" && author != "" && pages != "" && read != ""){
-        let book = new Book(title, author, pages, read)
+    let type = document.getElementById('type').value
+    if(title != "" && author != "" && pages != "" && read != "" && type != ""){
+        let book = new Book(title, author, pages, read, type)
         myLibrary.push(book)
     }
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
 })
 
-function Book(title, author, pages, read){
+function Book(title, author, pages, read, type){
     this.title = title
     this.author = author
     this.pages = pages + ' pages'
     this.read = read
+    this.type = type
 }
 
 function addBookToLibrary(book){
@@ -45,7 +46,6 @@ function addBookToLibrary(book){
 
 function render(){
     const books = document.querySelectorAll(".book")
-    const checkbox = document.querySelectorAll(".checkbox")
     books.forEach( book => divLibrary.removeChild(book))
 
     myLibrary.forEach(function(book){
@@ -64,10 +64,12 @@ function CreateBook(book){
     const h1 = document.createElement('h1')
     const pAuthor = document.createElement('p')
     const pNumberOfPages = document.createElement('p')
+    const pType = document.createElement('p')
     div.classList.add("book")
     h1.innerText = book.title
     pAuthor.innerText = book.author
     pNumberOfPages.innerText = book.pages
+    pType.innerText = book.type
 
     // for(key in book){
     //     let td = document.createElement('td')
@@ -108,6 +110,7 @@ function CreateBook(book){
     div.appendChild(h1)
     div.appendChild(pAuthor)
     div.appendChild(pNumberOfPages)
+    div.appendChild(pType)
     div.appendChild(buttonDelete)
     div.appendChild(label)
     divLibrary.appendChild(div)
