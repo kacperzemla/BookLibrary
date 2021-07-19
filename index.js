@@ -4,7 +4,7 @@ const addButton = document.querySelector("#addNew")
 const newBookForm = document.querySelector(".bg-modal")
 const cancelBtn = document.getElementById("cancel-btn")
 const newBookBtn = document.getElementById("newbook-btn")
-const searchBar = document.getElementById("searchBar")
+const searchBar = document.querySelectorAll("#searchBar")
 
 const booksFromLocalStorage = JSON.parse(localStorage.getItem("myLibrary"))
 
@@ -12,20 +12,23 @@ if(booksFromLocalStorage){
   myLibrary = booksFromLocalStorage
 }
 
-searchBar.addEventListener('keyup', function(e){
-    // console.log(e.target.value)
-
-    const searchValue = e.target.value.toLowerCase()
-    const filteredBooks = myLibrary.filter( (book)=>{
-        return book.type.toLowerCase().includes(searchValue)
+//moze nie najlepsze praktyki ale pomyślę potem, może grid
+searchBar.forEach(function(search){
+    search.addEventListener('keyup', function(e){
+        // console.log(e.target.value)
+    
+        const searchValue = e.target.value.toLowerCase()
+        const filteredBooks = myLibrary.filter( (book)=>{
+            return book.type.toLowerCase().includes(searchValue)
+        })
+        console.log(filteredBooks)
+        if(filteredBooks.length > 0){
+            render(filteredBooks)
+        } else{
+            render(myLibrary)
+        }
+       
     })
-    console.log(filteredBooks)
-    if(filteredBooks.length > 0){
-        render(filteredBooks)
-    } else{
-        render(myLibrary)
-    }
-   
 })
 
 addButton.addEventListener("click", function(){

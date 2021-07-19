@@ -287,6 +287,10 @@ body{
     transform: translateX(22px);
 }
 
+.mobile-search{
+    display: none;
+}
+
 @media (max-width: 600px){
 
     .library__header{
@@ -309,5 +313,20 @@ body{
 
     .modal-content form input, select{
         width: 60%;
+    }
+
+    .mobile-search{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .mobile-search-input{
+        margin-left: 0;
+    }
+
+
+    .desktop-search{
+        display: none;
     }
 }
