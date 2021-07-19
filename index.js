@@ -45,15 +45,19 @@ function addBookToLibrary(book){
 
 function render(){
     const books = document.querySelectorAll(".book")
+    const checkbox = document.querySelectorAll(".checkbox")
     books.forEach( book => divLibrary.removeChild(book))
 
     myLibrary.forEach(function(book){
         CreateBook(book)
     })
+    check();
 
 }
 
+
 render();
+
 
 function CreateBook(book){
     const div = document.createElement('div')
@@ -109,28 +113,29 @@ function CreateBook(book){
     divLibrary.appendChild(div)
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    let checkbox = document.querySelectorAll('.checkbox')
-    console.log(checkbox)
-    for(let i = 0; i < myLibrary.length; i++){
-        let book = myLibrary[i]
-        if(book.read === "Yes"){
-            checkbox[i].checked = true
-        }
-        checkbox[i].addEventListener('change', function(){
-            if(checkbox[i].checked){
-                book.read = "Yes";
-            } else {
-                book.read = "No";
+function check(){
+    
+        let checkbox = document.querySelectorAll('.checkbox')
+        console.log(checkbox)
+        for(let i = 0; i < myLibrary.length; i++){
+            let book = myLibrary[i]
+            if(book.read === "Yes"){
+                checkbox[i].checked = true
             }
-            localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
-            console.log(book + '   ' + book.read)
+            checkbox[i].addEventListener('change', function(){
+                if(checkbox[i].checked){
+                    book.read = "Yes";
+                } else {
+                    book.read = "No";
+                }
+                localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
+                console.log(book + '   ' + book.read)
 
-        })
-    }
+            })
+        }
 
-})
-
+   
+}
 
 
 
