@@ -98,20 +98,7 @@ function CreateBook(book){
     input.classList.add("checkbox")
     label.appendChild(input)
     label.innerHTML += toggleSwitch
-    document.addEventListener('DOMContentLoaded', function () {
-        let checkbox = document.querySelector('.checkbox')
-        console.log(checkbox)
-        checkbox.addEventListener('change', function(){
-            if(checkbox.checked){
-                book.read = true;
-            } else {
-                book.read = false;
-            }
-            console.log(book + '   ' + book.read)
-        })
-    
-    })
-
+   
    
 
     div.appendChild(h1)
@@ -121,6 +108,30 @@ function CreateBook(book){
     div.appendChild(label)
     divLibrary.appendChild(div)
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    let checkbox = document.querySelector('.checkbox')
+    console.log(checkbox)
+    let book = myLibrary[0]
+    console.log(book)
+    if(book.read === "Yes"){
+        checkbox.checked = true
+    }
+
+    checkbox.addEventListener('change', function(){
+        if(checkbox.checked){
+            book.read = "Yes";
+        } else {
+            book.read = "No";
+        }
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
+        console.log(book + '   ' + book.read)
+    })
+
+
+
+})
+
 
 
 
