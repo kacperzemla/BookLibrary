@@ -110,25 +110,24 @@ function CreateBook(book){
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    let checkbox = document.querySelector('.checkbox')
+    let checkbox = document.querySelectorAll('.checkbox')
     console.log(checkbox)
-    let book = myLibrary[0]
-    console.log(book)
-    if(book.read === "Yes"){
-        checkbox.checked = true
-    }
-
-    checkbox.addEventListener('change', function(){
-        if(checkbox.checked){
-            book.read = "Yes";
-        } else {
-            book.read = "No";
+    for(let i = 0; i < myLibrary.length; i++){
+        let book = myLibrary[i]
+        if(book.read === "Yes"){
+            checkbox[i].checked = true
         }
-        localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
-        console.log(book + '   ' + book.read)
-    })
+        checkbox[i].addEventListener('change', function(){
+            if(checkbox[i].checked){
+                book.read = "Yes";
+            } else {
+                book.read = "No";
+            }
+            localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
+            console.log(book + '   ' + book.read)
 
-
+        })
+    }
 
 })
 
