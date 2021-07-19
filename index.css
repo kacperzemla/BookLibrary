@@ -53,6 +53,15 @@ body{
     justify-content: center;
 }
 
+.searchBar{
+    margin-left: 3rem;
+    outline: none;
+    padding: 0.7rem;
+    border: none;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+    border-radius: 20px;
+}
+
 
 
 .library{

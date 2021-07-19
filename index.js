@@ -4,12 +4,29 @@ const addButton = document.querySelector("#addNew")
 const newBookForm = document.querySelector(".bg-modal")
 const cancelBtn = document.getElementById("cancel-btn")
 const newBookBtn = document.getElementById("newbook-btn")
+const searchBar = document.getElementById("searchBar")
 
 const booksFromLocalStorage = JSON.parse(localStorage.getItem("myLibrary"))
-//to przy odswiezaniu sie dzieje 
+
 if(booksFromLocalStorage){
   myLibrary = booksFromLocalStorage
 }
+
+searchBar.addEventListener('keyup', function(e){
+    // console.log(e.target.value)
+
+    const searchValue = e.target.value.toLowerCase()
+    const filteredBooks = myLibrary.filter( (book)=>{
+        return book.type.toLowerCase().includes(searchValue)
+    })
+    console.log(filteredBooks)
+    if(filteredBooks.length > 0){
+        render(filteredBooks)
+    } else{
+        render(myLibrary)
+    }
+   
+})
 
 addButton.addEventListener("click", function(){
     newBookForm.style.display = "flex"
@@ -44,19 +61,19 @@ function addBookToLibrary(book){
     myLibrary.push(book)
 }
 
-function render(){
+function render(myLibrary){
     const books = document.querySelectorAll(".book")
     books.forEach( book => divLibrary.removeChild(book))
 
     myLibrary.forEach(function(book){
         CreateBook(book)
     })
-    check();
+    check(myLibrary);
 
 }
 
 
-render();
+render(myLibrary);
 
 
 function CreateBook(book){
@@ -84,9 +101,9 @@ function CreateBook(book){
 
     buttonDelete.addEventListener("click", function(){
         myLibrary.splice(myLibrary.indexOf(book),1)
-        console.log(myLibrary)
+        // console.log(myLibrary)
         localStorage.setItem("myLibrary", JSON.stringify(myLibrary))
-        render();
+        render(myLibrary);
     })
 
     const label = document.createElement('label')
@@ -116,10 +133,10 @@ function CreateBook(book){
     divLibrary.appendChild(div)
 }
 
-function check(){
+function check(myLibrary){
     
         let checkbox = document.querySelectorAll('.checkbox')
-        console.log(checkbox)
+        // console.log(checkbox)
         for(let i = 0; i < myLibrary.length; i++){
             let book = myLibrary[i]
             if(book.read === "Yes"){
