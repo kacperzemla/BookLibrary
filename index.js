@@ -16,18 +16,14 @@ if(booksFromLocalStorage){
 searchBar.forEach(function(search){
     search.addEventListener('keyup', function(e){
         // console.log(e.target.value)
-    
         const searchValue = e.target.value.toLowerCase()
         const filteredBooks = myLibrary.filter( (book)=>{
             return book.type.toLowerCase().includes(searchValue)
         })
         console.log(filteredBooks)
-        if(filteredBooks.length > 0){
+
             render(filteredBooks)
-        } else{
-            render(myLibrary)
-        }
-       
+
     })
 })
 

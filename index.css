@@ -62,6 +62,10 @@ body{
     border-radius: 20px;
 }
 
+.searchBar::placeholder{
+    color: #B7B7B7;
+}
+
 
 
 .library{
@@ -76,10 +80,11 @@ body{
 .book{
     padding: 1rem 2rem;
     width: 250px;
-    height: 260px;
+    height: 100%;
     border-radius: 29px;
     box-shadow: 0 3px 10px 1px rgba(0,0,0,0.25);
     background: #fff;
+    word-wrap: break-word;
 }
 
 .book p{
