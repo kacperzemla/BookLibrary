@@ -1,5 +1,5 @@
 # BookLibrary
-Book Library project that I made during learning javaScript. 
+Book Library project that I made when learning javaScript. 
 
 Live view:
 https://peaceful-bardeen-8dc958.netlify.app/
